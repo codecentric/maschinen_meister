@@ -1,0 +1,11 @@
+@startuml
+
+[*] --> Active
+
+state Active {
+    [*] --> Hot: MQTTConnect
+    Hot --> Cold: ConnectionLost
+    Cold --> Hot: MQTTConnect[connect.clean == false]
+}
+
+@enduml
