@@ -1,11 +1,15 @@
 @startuml
 
-[*] --> Active
 
-state Active {
-    [*] --> Hot: MQTTConnect
-    Hot --> Cold: ConnectionLost
-    Cold --> Hot: MQTTConnect[connect.clean == false]
-}
+[*] --> Hot: MQTTConnect
+Hot --> Cold: NoMQTTPingReponse|ConnectionDrop|Disconnect
+Hot --> Hot: MQTTConnect[connect.clean == false]
+Cold --> Hot: MQTTConnect[connect.clean == false]
+
+
+Hot --> Stopping: MQTTConnect[connect.clean == true]
+Cold --> Stopping: MQTTConnect[connect.clean == true]|Eviction
+
+Stopping -> [*]
 
 @enduml
