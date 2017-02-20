@@ -2,7 +2,7 @@
 * The api interfaces reflect the request / response objects as described in the MQTT specification.
  * Static Header information, which are common between all instances of the messages are omitted from the interface,
  * as they are considered wire-level specific without any value.
- * Payload messages are inlined as regular methods, as there is no need to differentiate header / payload on this leve.
+ * Payload messages are inlined as regular methods, as there is no need to differentiate header / payload on this level.
  * If a payload is marked as optional by analysing a header flag, it will be represented as an Optional<T> field.
  * These objects contain no plausibility checks, so if a valid configuration requires a special combination of values
  * across multiple fields, an additional check is required.
