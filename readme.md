@@ -17,4 +17,4 @@ The class collaborates with following domain objects:
 
 ### States
 
-![Session States](src/main/java/plantuml/session/state.png)
+![Session States](src/main/plantuml/session/state.png)
