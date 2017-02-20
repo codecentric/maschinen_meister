@@ -63,6 +63,7 @@
                 <groupId>com.github.jeluard</groupId>
                 <artifactId>plantuml-maven-plugin</artifactId>
                 <configuration>
+                    <outputInSourceDirectory>true</outputInSourceDirectory>
                     <sourceFiles>
                         <directory>${basedir}</directory>
                         <includes>

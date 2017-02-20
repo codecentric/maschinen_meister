@@ -14,3 +14,7 @@ The class collaborates with following domain objects:
 * Connection: A connection will initiate a session, but may be lost and recovered.  
 * Subscription: A subscription is session specific and will if required pull and queue messages from central topics.
 * Topic: Is a client / session agnostic broker system on which messages are exhanged.
+
+### States
+
+![Session States](src/main/java/plantuml/session/state.png)
