@@ -6,13 +6,21 @@ import io.reactivex.Flowable;
 public final class Subscriber {
 
     private final ClientFunctionalInterface clientFunction;
+    private final MessageMatcherFunctionalInterface topicFilterFunction;
 
-    public Subscriber(final ClientFunctionalInterface clientFunction){
+    public Subscriber(
+            final MessageMatcherFunctionalInterface topicFilterFunction,
+            final ClientFunctionalInterface clientFunction
+    ){
+        this.topicFilterFunction = topicFilterFunction;
         this.clientFunction = clientFunction;
     }
 
     public void register(final Flowable<Message> messages){
-        messages.subscribe(clientFunction::receive);
+
+                messages
+                        .filter(topicFilterFunction::predicate)
+                        .subscribe(clientFunction::receive);
     }
 
 
